@@ -1,0 +1,163 @@
+/* Custom Global Variables & Reset */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --accent-color: #2563eb;
+  --border-color: #e2e8f0;
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+/* Header Styling */
+.blog-header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-logo {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.blog-tagline {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* Feed Container Layout */
+.blog-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.blog-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Post Cards & Visual Enhancements */
+.post-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s ease;
+}
+
+/* Hover Effects on Cards */
+.post-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Typography & Internals */
+.post-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.post-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: var(--text-main);
+  transition: color 0.2s ease;
+}
+
+/* Hover Accent Shift for Headings */
+.post-card:hover .post-title a {
+  color: var(--accent-color);
+}
+
+.post-summary {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.read-more-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+/* Read More Arrow Slide Action */
+.post-card:hover .read-more-link {
+  transform: translateX(4px);
+}
+
+/* Footer layout */
+.blog-footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  margin-top: 80px;
+}
+
+/* Mobile Responsiveness Adjustments */
+@media (max-width: 640px) {
+  .blog-header {
+    padding: 40px 20px;
+  }
+  
+  .blog-logo {
+    font-size: 32px;
+  }
+  
+  .post-card {
+    padding: 24px;
+  }
+  
+  .post-title {
+    font-size: 22px;
+  }
+}
