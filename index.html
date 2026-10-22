@@ -1,90 +1,166 @@
-<link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Dev Journal | Blog</title>
-  <!-- Google Fonts Connection -->
+  <title>The Daily Dev | Thoughts, Code & Design</title>
+
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" 
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Blog Header -->
-  <header class="blog-header">
-    <div class="header-container">
-      <h1 class="blog-logo">The Dev Journal</h1>
-      <p class="blog-tagline">Thoughts on modern web development, design patterns, and clean code.</p>
+  <!-- Navigation / Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo">The Daily Dev<span>.</span></a>
+      <nav class="nav-links">
+        <a href="#" class="active">Articles</a>
+        <a href="#">About</a>
+        <a href="#">Newsletter</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Main Blog Content Feed -->
-  <main class="blog-container">
-    <div class="blog-feed">
-      
-      <!-- Article 1 -->
-      <article class="post-card">
-        <div class="post-meta">
-          <span class="post-author">By Alex Rivera</span>
-          <span class="meta-divider">•</span>
-          <time class="post-date" datetime="2026-07-15">July 15, 2026</time>
-        </div>
-        <h2 class="post-title">
-          <a href="#">Mastering CSS Grid: From Layout Basics to Fluid Layouts</a>
-        </h2>
-        <p class="post-summary">
-          CSS Grid has completely altered the landscape of user interface assembly. In this breakdown, we examine auto-fit behaviors, responsive minmax bounds, and how to eliminate structural breakpoints completely.
-        </p>
-        <div class="post-footer">
-          <a href="#" class="read-more-link">Read Article →</a>
-        </div>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="post-card">
-        <div class="post-meta">
-          <span class="post-author">By Jessica Chen</span>
-          <span class="meta-divider">•</span>
-          <time class="post-date" datetime="2026-07-10">July 10, 2026</time>
-        </div>
-        <h2 class="post-title">
-          <a href="#">The Art of Subtle Micro-interactions</a>
-        </h2>
-        <p class="post-summary">
-          Good design can often be felt rather than explicitly noticed. Learn how leveraging delicate CSS transition parameters and subtle hover scales can significantly improve interface clarity without distracting users.
-        </p>
-        <div class="post-footer">
-          <a href="#" class="read-more-link">Read Article →</a>
-        </div>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="post-card">
-        <div class="post-meta">
-          <span class="post-author">By Marcus Vance</span>
-          <span class="meta-divider">•</span>
-          <time class="post-date" datetime="2026-06-28">June 28, 2026</time>
-        </div>
-        <h2 class="post-title">
-          <a href="#">Why Semantic HTML5 Still Matters in 2026</a>
-        </h2>
-        <p class="post-summary">
-          With frameworks dominating development pipelines, structural markup tags sometimes become an afterthought. Let's look at how native semantic structures boost overall reader accessibility and search crawlability index ratings.
-        </p>
-        <div class="post-footer">
-          <a href="#" class="read-more-link">Read Article →</a>
-        </div>
-      </article>
-
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="hero-tag">Curated Stories</span>
+      <h1 class="hero-title">Writing on design, engineering, and digital craft.</h1>
+      <p class="hero-subtitle">Hand-picked insights, tutorials, and practical musings for modern creators.</p>
     </div>
+  </section>
+
+  <!-- Main Feed -->
+  <main class="container blog-feed">
+    
+    <!-- Post 1 -->
+    <article class="post-card">
+      <div class="post-thumbnail-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" 
+          alt="Clean workspace with laptop and notebook" 
+          class="post-thumbnail"
+        >
+        <span class="category-badge">Web Design</span>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-author">Elena Rostova</span>
+          <span class="meta-separator">•</span>
+          <time datetime="2026-10-15">Oct 15, 2026</time>
+          <span class="meta-separator">•</span>
+          <span class="reading-time">5 min read</span>
+        </div>
+        <h2 class="post-title">
+          <a href="#">Mastering Modern CSS: Subgrid, Container Queries, and Beyond</a>
+        </h2>
+        <p class="post-summary">
+          Layouts in CSS have evolved faster in the last two years than in the previous decade. Learn how container queries let components adapt to their parents rather than the whole viewport.
+        </p>
+        <div class="post-footer">
+          <a href="#" class="read-more-btn">
+            Read Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Post 2 -->
+    <article class="post-card">
+      <div class="post-thumbnail-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" 
+          alt="Monochrome code on an ultra-wide monitor" 
+          class="post-thumbnail"
+        >
+        <span class="category-badge">Engineering</span>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-author">Marcus Vance</span>
+          <span class="meta-separator">•</span>
+          <time datetime="2026-10-08">Oct 8, 2026</time>
+          <span class="meta-separator">•</span>
+          <span class="reading-time">8 min read</span>
+        </div>
+        <h2 class="post-title">
+          <a href="#">Designing Resilient APIs with Idempotency Keys</a>
+        </h2>
+        <p class="post-summary">
+          Network glitches happen. Duplicate payments and repeated requests shouldn't. Here is an architectural blueprint for guaranteeing safe retries across distributed backend services.
+        </p>
+        <div class="post-footer">
+          <a href="#" class="read-more-btn">
+            Read Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Post 3 -->
+    <article class="post-card">
+      <div class="post-thumbnail-wrap">
+        <img 
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" 
+          alt="Team collaborating at a desk with sketches" 
+          class="post-thumbnail"
+        >
+        <span class="category-badge">Productivity</span>
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-author">Amina Chen</span>
+          <span class="meta-separator">•</span>
+          <time datetime="2026-09-29">Sep 29, 2026</time>
+          <span class="meta-separator">•</span>
+          <span class="reading-time">4 min read</span>
+        </div>
+        <h2 class="post-title">
+          <a href="#">The Art of Async Communication in Fully Remote Teams</a>
+        </h2>
+        <p class="post-summary">
+          Calendar fatigue kills deep work. Discover the rituals, documentation standards, and slack etiquette top distributed companies use to stay aligned without unending meetings.
+        </p>
+        <div class="post-footer">
+          <a href="#" class="read-more-btn">
+            Read Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
   </main>
 
-  <!-- Blog Footer -->
-  <footer class="blog-footer">
-    <p>&copy; 2026 The Dev Journal. Built with HTML5 & Google Fonts.</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 The Daily Dev. Written with clarity &amp; purpose.</p>
+      <div class="footer-links">
+        <a href="#">Twitter / X</a>
+        <a href="#">GitHub</a>
+        <a href="#">RSS Feed</a>
+      </div>
+    </div>
   </footer>
 
 </body>
