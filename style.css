@@ -1,163 +1,324 @@
-/* Custom Global Variables & Reset */
+/* ==================== 1. CSS VARIABLES & RESETS ==================== */
 :root {
-  --bg-primary: #f8fafc;
-  --bg-card: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --accent-color: #2563eb;
-  --border-color: #e2e8f0;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --bg-page: #fbfbfa;
+  --bg-card: #ffffff;
+  --bg-badge: #edf2f7;
+  
+  --color-primary: #18191a;
+  --color-secondary: #575e65;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-border: #eaeaea;
+  
+  --radius-card: 16px;
+  --radius-badge: 999px;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.1);
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-main);
   font-family: var(--font-sans);
-  line-height: 1.7;
+  background-color: var(--bg-page);
+  color: var(--color-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Header Styling */
-.blog-header {
-  background-color: var(--bg-card);
-  border-bottom: 1px solid var(--border-color);
-  padding: 60px 20px;
-  text-align: center;
+/* ==================== 2. LAYOUT CONTAINER ==================== */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-.header-container {
-  max-width: 800px;
-  margin: 0 auto;
+/* ==================== 3. HEADER ==================== */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: rgba(251, 251, 250, 0.9);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.blog-logo {
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.brand-logo {
   font-family: var(--font-serif);
-  font-size: 42px;
-  color: var(--text-main);
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
   letter-spacing: -0.5px;
 }
 
-.blog-tagline {
-  font-size: 16px;
-  color: var(--text-muted);
+.brand-logo span {
+  color: var(--color-accent);
 }
 
-/* Feed Container Layout */
-.blog-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
 }
 
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-accent);
+}
+
+/* ==================== 4. HERO SECTION ==================== */
+.hero-section {
+  padding: 4.5rem 0 3rem;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-accent);
+  background: #eff6ff;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-badge);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  max-width: 720px;
+  margin: 0 auto 1rem;
+}
+
+.hero-subtitle {
+  color: var(--color-secondary);
+  font-size: 1.15rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ==================== 5. BLOG FEED & CARDS ==================== */
 .blog-feed {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2.25rem;
+  margin-bottom: 5rem;
 }
 
-/* Post Cards & Visual Enhancements */
 .post-card {
+  display: flex;
   background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.25s ease;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-/* Hover Effects on Cards */
+/* Lift on hover */
 .post-card:hover {
   transform: translateY(-4px);
-  border-color: #cbd5e1;
-  box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-hover);
+  border-color: #d8dee4;
 }
 
-/* Card Typography & Internals */
+/* Image Thumbnail */
+.post-thumbnail-wrap {
+  position: relative;
+  width: 38%;
+  min-width: 280px;
+  overflow: hidden;
+  background-color: #e2e8f0;
+}
+
+.post-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.post-card:hover .post-thumbnail {
+  transform: scale(1.05);
+}
+
+.category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-badge);
+}
+
+/* Post Content */
+.post-content {
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
 .post-meta {
   display: flex;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.post-author {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.meta-separator {
+  margin: 0 0.5rem;
+  color: #cbd5e1;
 }
 
 .post-title {
   font-family: var(--font-serif);
-  font-size: 26px;
-  line-height: 1.3;
-  margin-bottom: 16px;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
 }
 
 .post-title a {
+  color: var(--color-primary);
   text-decoration: none;
-  color: var(--text-main);
   transition: color 0.2s ease;
 }
 
-/* Hover Accent Shift for Headings */
 .post-card:hover .post-title a {
-  color: var(--accent-color);
+  color: var(--color-accent);
 }
 
 .post-summary {
-  color: var(--text-muted);
-  font-size: 16px;
-  margin-bottom: 24px;
+  color: var(--color-secondary);
+  font-size: 0.975rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.read-more-link {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--accent-color);
+/* Call to action */
+.post-footer {
+  margin-top: auto;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 15px;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.read-more-btn svg {
   transition: transform 0.2s ease;
 }
 
-/* Read More Arrow Slide Action */
-.post-card:hover .read-more-link {
+.post-card:hover .read-more-btn {
+  color: var(--color-accent-hover);
+}
+
+.post-card:hover .read-more-btn svg {
   transform: translateX(4px);
 }
 
-/* Footer layout */
-.blog-footer {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-muted);
-  font-size: 14px;
-  border-top: 1px solid var(--border-color);
-  background-color: var(--bg-card);
-  margin-top: 80px;
+/* ==================== 6. FOOTER ==================== */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2.5rem 0;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
 }
 
-/* Mobile Responsiveness Adjustments */
-@media (max-width: 640px) {
-  .blog-header {
-    padding: 40px 20px;
-  }
-  
-  .blog-logo {
-    font-size: 32px;
-  }
-  
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+/* ==================== 7. MOBILE RESPONSIVENESS ==================== */
+@media (max-width: 768px) {
   .post-card {
-    padding: 24px;
+    flex-direction: column;
   }
-  
-  .post-title {
-    font-size: 22px;
+
+  .post-thumbnail-wrap {
+    width: 100%;
+    height: 220px;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .hero-section {
+    padding: 3rem 0 2rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
   }
 }
